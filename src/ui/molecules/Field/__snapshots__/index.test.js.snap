@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`molecules/Field matches its base snapshot 1`] = `
+.c0 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  margin-top: 1rem;
+  padding-left: 9.75rem;
+}
+
+.c0 .c1 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  margin-right: 1rem;
+  min-width: 8.75rem;
+  max-width: 8.75rem;
+}
+
+.c0 .c2 {
+  width: auto;
+}
+
+<div>
+  <div
+    class="c0 class-name"
+    data-testid="molecule-field"
+  />
+</div>
+`;

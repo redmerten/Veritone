@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`atoms/Label matches its base snapshot 1`] = `
+.c0 {
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  font-family: 'roboto mono',monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  -webkit-letter-spacing: 0.026875rem;
+  -moz-letter-spacing: 0.026875rem;
+  -ms-letter-spacing: 0.026875rem;
+  letter-spacing: 0.026875rem;
+  opacity: 0.75;
+  padding-left: 0.25rem;
+  text-transform: uppercase;
+}
+
+<body>
+  <div>
+    <label
+      class="c0"
+      data-testid="atom-label"
+    />
+  </div>
+</body>
+`;

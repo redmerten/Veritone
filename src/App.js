@@ -1,24 +1,31 @@
-import logo from './logo.svg';
+import React from 'react';
+import styled, { ThemeProvider } from 'styled-components';
+
+import { GlobalStyle } from './config/styling';
+import theme from './config/theme';
+
+import List from './List';
+
+import Title from './ui/atoms/Title';
+
 import './App.css';
+
+const MainDiv = styled.div`
+  /* align-items: ; */
+  /* display:flex; */
+  margin: 5%;
+  width: 30%;
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <MainDiv>
+        <Title>Veritone Challenge</Title>
+        <hr />
+        <List />
+      </MainDiv>
+    </ThemeProvider>
   );
 }
 

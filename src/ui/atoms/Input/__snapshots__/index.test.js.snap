@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`atoms/Input matches its base snapshot 1`] = `
+.c0 {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+  background: none;
+  border: 0;
+  color: #242425;
+  cursor: initial;
+  font-family: 'roboto-mono',monospace;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  width: inherit;
+}
+
+.c0:-webkit-autofill {
+  box-shadow: inset 0 0 0px 9999px #f2f3f5;
+}
+
+.c0::-webkit-input-placeholder {
+  color: #8F95a5;
+}
+
+.c0::-moz-placeholder {
+  color: #8F95a5;
+}
+
+.c0:-ms-input-placeholder {
+  color: #8F95a5;
+}
+
+.c0::placeholder {
+  color: #8F95a5;
+}
+
+.c0:disabled {
+  color: #B0BEC5 !important;
+}
+
+<body>
+  <div>
+    <input
+      class="c0"
+      data-testid="atom-input"
+      placeholder=""
+      type="text"
+    />
+  </div>
+</body>
+`;
