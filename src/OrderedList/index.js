@@ -4,9 +4,18 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Button from '../ui/atoms/Button';
+import TextInput from '../ui/atoms/TextInput';
 
 import Field from '../ui/molecules/Field';
-import TextInput from '../ui/atoms/TextInput';
+
+const FlexDiv = styled.div`
+  align-items: center;
+  display: flex;
+  height: ${rem(20)};
+  justify-content: space-between;
+  margin: ${rem(5)} 0;
+  width: 80%;
+`;
 
 const Form = styled.form`
   display: flex;
@@ -18,10 +27,13 @@ const LI = styled.li`
 
 const UL = styled.ul`
   margin-left: ${rem(144)};
-  width: 30%;
 `;
 
-export default function List() {
+//
+//  OrderedList Component
+//  -------------------------------------------------------
+
+export default function OrderedList() {
   const initialFormValues = {
     current: '',
     list: [],
@@ -30,14 +42,9 @@ export default function List() {
 
   const sortList = (order, list) => {
     return list.sort((a, b) => {
-      if (a < b) {
-        return order === 'ascending' ? -1 : 1;
-      }
-      if (a > b) {
-        return order === 'ascending' ? 1 : -1;
-      }
+      if (a < b) return order === 'ascending' ? -1 : 1;
+      if (a > b) return order === 'ascending' ? 1 : -1;
       return 0;
-      // order === 'ascending' ? a - b : b - a));
     });
   };
 
@@ -52,8 +59,20 @@ export default function List() {
     setFieldValue('order', order === 'ascending' ? 'descending' : 'ascending');
   };
 
-  const clearList = (setFieldValue) => {
+  const clearList = setFieldValue => {
     setFieldValue('list', []);
+  };
+
+  const removeListItem = (item, list, setFieldValue) => {
+    console.log(
+      'remove',
+      item,
+      list.filter(e => e !== item)
+    );
+    setFieldValue(
+      'list',
+      list.filter(e => e !== item)
+    );
   };
 
   return (
@@ -62,33 +81,40 @@ export default function List() {
         enableReinitialize
         initialValues={initialFormValues}
         onSubmit={(values, { setFieldValue }) => handleListEntry(values, setFieldValue)}
-        // validate={validate}
         validateOnChange={false}
       >
-        {({ errors, handleChange, handleSubmit, setFieldValue, setErrors, values }) => {
+        {({ handleChange, handleSubmit, setFieldValue, values }) => {
           const { current, list, order } = values;
 
           const sortedList = sortList(order, list);
-          console.log('values', values, sortedList);
 
           return (
             <>
               <Form onSubmit={handleSubmit}>
-                <Field
-                  //   disabled={disabled}
-                  label="Input List Item"
-                >
+                <Field label="Input List Item">
                   <TextInput name="current" onChange={handleChange} placeholder="a list item" value={current} />
-                  <Button onClick={() => handleOrderChange(order, setFieldValue)}>
+                  <Button
+                    class="sort-direction"
+                    onClick={() => handleOrderChange(order, setFieldValue)}
+                    order
+                    type="button"
+                  >
                     {order === 'ascending' ? '⬇️' : '⬆️'}
                   </Button>
-                  <Button onClick={() => clearList(setFieldValue)}>Clear List</Button>
+                  <Button class="clear-list" onClick={() => clearList(setFieldValue)} type="button">
+                    Clear List
+                  </Button>
                 </Field>
               </Form>
 
-              <UL>
+              <UL class="items-list">
                 {sortedList.map((item, i) => (
-                  <LI key={item + i}>{item}</LI>
+                  <FlexDiv>
+                    <LI key={item + i}>{item}</LI>
+                    <Button onClick={() => removeListItem(item, list, setFieldValue)} remove>
+                      x
+                    </Button>
+                  </FlexDiv>
                 ))}
               </UL>
             </>

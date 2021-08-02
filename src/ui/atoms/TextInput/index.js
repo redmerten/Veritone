@@ -34,6 +34,7 @@ function TextInput(
   return (
     <Container data-testid={dataTestId} disabled={disabled} small={small} type={type}>
       <Input
+        class="add-item"
         disabled={disabled}
         placeholder={placeholder}
         ref={ref}

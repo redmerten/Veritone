@@ -1,5 +1,5 @@
 import { rem } from 'polished';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const Button = styled.button`
   background: none;
@@ -19,9 +19,24 @@ const Button = styled.button`
     margin-bottom: ${rem(-5)};
   }
 
-  &:nth-of-type(1) {
-    font-size: ${rem(25)};
-  }
+  ${({ order }) =>
+    order &&
+    css`
+      font-size: ${rem(25)};
+    `};
+
+  ${({ remove }) =>
+    remove &&
+    css`
+      height: ${rem(20)};
+
+      &:hover {
+        border-bottom: none;
+        color: ${({ theme }) => theme.colors.jet};
+        cursor: pointer;
+        height: auto;
+      }
+    `};
 `;
 
 Button.displayName = 'Button';

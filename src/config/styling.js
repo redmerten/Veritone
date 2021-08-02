@@ -1,11 +1,12 @@
 // @flow
 
-import { rgba, rem } from 'polished';
-import { createGlobalStyle, css } from 'styled-components';
+import { rgba, rem } from "polished";
+import { createGlobalStyle, css } from "styled-components";
 
 export function boxShadow() {
   return css`
-    box-shadow: ${({ theme }) => rgba(theme.colors.black, 0.1)} 0 ${rem(4)} ${rem(16)};
+    box-shadow: ${({ theme }) => rgba(theme.colors.black, 0.1)} 0 ${rem(4)}
+      ${rem(16)};
   `;
 }
 
@@ -19,9 +20,9 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: ${(p) => p.theme.colors.antiFlashWhite};
-    color: ${(p) => p.theme.colors.independence};
-    font-family: ${(p) => p.theme.fonts.roboto};
+    background-color: ${p => p.theme.colors.antiFlashWhite};
+    color: ${p => p.theme.colors.independence};
+    font-family: ${p => p.theme.fonts.roboto};
     margin: 0;
   }
 

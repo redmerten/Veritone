@@ -1,20 +1,18 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 
-import { GlobalStyle } from './config/styling';
+// import { GlobalStyle } from './config/styling';
 import theme from './config/theme';
 
-import List from './List';
+import OrderedList from './OrderedList';
 
 import Title from './ui/atoms/Title';
 
-import './App.css';
+// import './App.css';
 
 const MainDiv = styled.div`
-  /* align-items: ; */
-  /* display:flex; */
   margin: 5%;
-  width: 30%;
+  width: 40%;
 `;
 
 function App() {
@@ -23,7 +21,7 @@ function App() {
       <MainDiv>
         <Title>Veritone Challenge</Title>
         <hr />
-        <List />
+        <OrderedList />
       </MainDiv>
     </ThemeProvider>
   );
