@@ -3,6 +3,10 @@
 A simple app that renders a list in ascending or descending order. It's a [`create-react-app`][cra] application and can be booted by running:
 
 ```bash
+❯ yarn install
+```
+
+```bash
 ❯ yarn start
 ```
 
